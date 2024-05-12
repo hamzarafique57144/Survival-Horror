@@ -11,9 +11,8 @@ Material:
   m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHABLEND_ON
-  - _COLORCOLOR_ON
+  - _COLOROVERLAY_ON
   - _EMISSION
-  - _FADING_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -45,7 +44,7 @@ Material:
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
-    - _ColorMode: 4
+    - _ColorMode: 3
     - _Cull: 2
     - _Cutoff: 0.5
     - _DistortionBlend: 0.5
@@ -57,7 +56,7 @@ Material:
     - _FlipbookMode: 0
     - _LightingEnabled: 0
     - _Mode: 4
-    - _SoftParticlesEnabled: 1
+    - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 0.7
     - _SoftParticlesNearFadeDistance: 3
     - _SrcBlend: 5
@@ -65,7 +64,7 @@ Material:
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
+    - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1.7411765, g: 0.61960787, b: 0.10980392, a: 1}
-    - _SoftParticleFadeParams: {r: 3, g: -0.4347826, b: 0, a: 0}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
