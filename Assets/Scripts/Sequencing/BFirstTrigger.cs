@@ -9,6 +9,15 @@ public class BFirstTrigger : MonoBehaviour
     [SerializeField] FirstPersonController Player;
     [SerializeField] TextMeshProUGUI TextBox;
     [SerializeField] GameObject TheMarker;
+    bool PistoNotPick = true; 
+    private void Update()
+    {
+        if(PickUpPistol.isPistolPicked == true && PistoNotPick)
+        {
+            this.GetComponent<BoxCollider>().enabled = false;
+            PistoNotPick = false;
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
