@@ -13,6 +13,7 @@ public class PickUpPistol : MonoBehaviour
     [SerializeField] GameObject ExtraCross;
     [SerializeField] GameObject GuidArrow;
     [SerializeField] TextMeshProUGUI KeyText;
+    [SerializeField] GameObject DangerZone;
     void Update()
     {
         TheDistance = PlayerCasting.DistanceFromTarget;
@@ -43,6 +44,7 @@ public class PickUpPistol : MonoBehaviour
                 ExtraCross.SetActive(false);
                 GuidArrow.SetActive(false);
                 isPistolPicked = true;
+                DangerZone.SetActive(true);
             }
         }
     }
