@@ -17,6 +17,8 @@ public class ZombeiTrigger : MonoBehaviour
             Door.GetComponent<Animation>().Play("Door2Anim");
             DoorBang.Play();
             Zombie.SetActive(true);
+            Zombie.GetComponent<Animator>().SetBool("Walk", true);
+
             StartCoroutine(DoorJumpSound());
         }
     }
