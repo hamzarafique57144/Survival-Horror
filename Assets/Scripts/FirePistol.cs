@@ -8,18 +8,23 @@ public class FirePistol : MonoBehaviour
     [SerializeField] GameObject Muzzle;
     [SerializeField] bool isFiring;
     [SerializeField] AudioSource GunFire;
-    public float TargetDistance;
-    public int DamageAmount;
+    public float TargetDistance=25f;
+    public int DamageAmount=5;
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
-        {
-            if(isFiring == false)
+            if (Input.GetButtonDown("Fire1"))
             {
-                StartCoroutine(FiringPistol());
+            if (Gun.activeInHierarchy == true)
+            {
+                if (isFiring == false)
+                {
+                    StartCoroutine(FiringPistol());
+                }
             }
-        }
+            }
+        
+        
     }
     IEnumerator FiringPistol()
     {

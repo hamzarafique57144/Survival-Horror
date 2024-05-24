@@ -7,6 +7,8 @@ TagManager:
   - FuelStation
   - Fuel
   - Cube
+  - CinemachineTarget
+  - Enemy
   layers:
   - Default
   - TransparentFX

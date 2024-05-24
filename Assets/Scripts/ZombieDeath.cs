@@ -7,6 +7,7 @@ public class ZombieDeath : MonoBehaviour
     [SerializeField] int EnemyHealth = 20;
     [SerializeField] GameObject Enemy;
     [SerializeField] int StatusCheck;
+    [SerializeField] AudioSource JumpScareMusic;
    void DamageZombie(int DamageAmount)
     {
         EnemyHealth -= DamageAmount;
@@ -20,6 +21,8 @@ public class ZombieDeath : MonoBehaviour
             StatusCheck = 2;
             Enemy.GetComponent<Animator>().SetBool("Walk", false);
             Enemy.GetComponent<Animator>().SetTrigger("death");
+            Enemy.GetComponent<BoxCollider>().enabled = false;
+            JumpScareMusic.Stop();
         }
     }
 }
