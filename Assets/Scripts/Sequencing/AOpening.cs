@@ -9,6 +9,8 @@ public class AOpening : MonoBehaviour
     [SerializeField] FirstPersonController Player;
     [SerializeField] GameObject FadeInScreen;
     [SerializeField] TextMeshProUGUI TextBox;
+    [SerializeField] AudioSource line01;
+    [SerializeField] AudioSource line02;
 
     private void Start()
     {
@@ -21,7 +23,13 @@ public class AOpening : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         FadeInScreen.SetActive(false);
-        TextBox.text = "I want to get out of here!";
+        TextBox.text = "...Where am I?";
+        line01.Play();
+        yield return new WaitForSeconds(2f);
+        TextBox.text = " ";
+        yield return new WaitForSeconds(0.5f);
+        TextBox.text = "I need to get out of here!";
+        line02.Play();
         yield return new WaitForSeconds(2f);
         Player.GetComponent<FirstPersonController>().enabled = true;
         TextBox.text = " ";

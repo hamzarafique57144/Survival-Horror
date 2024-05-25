@@ -13,12 +13,13 @@ public class FirePistol : MonoBehaviour
 
     private void Update()
     {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && GlobalAmo.AmoCount != 0)
             {
             if (Gun.activeInHierarchy == true)
             {
                 if (isFiring == false)
                 {
+                    GlobalAmo.AmoCount--;
                     StartCoroutine(FiringPistol());
                 }
             }

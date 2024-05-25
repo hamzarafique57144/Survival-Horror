@@ -8,6 +8,7 @@ public class ZombeiTrigger : MonoBehaviour
     [SerializeField] AudioSource DoorjumpMusic;
     [SerializeField] GameObject Zombie;
     [SerializeField] GameObject Door;
+    [SerializeField] AudioSource bgMusic;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class ZombeiTrigger : MonoBehaviour
         {
             this.GetComponent<BoxCollider>().enabled = false;
             Door.GetComponent<Animation>().Play("Door2Anim");
+            bgMusic.Stop();
             DoorBang.Play();
             Zombie.SetActive(true);
             Zombie.GetComponent<Animator>().SetBool("Walk", true);

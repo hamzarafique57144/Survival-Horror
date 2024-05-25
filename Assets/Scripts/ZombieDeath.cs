@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ZombieDeath : MonoBehaviour
 {
     [SerializeField] int EnemyHealth = 20;
@@ -9,8 +10,9 @@ public class ZombieDeath : MonoBehaviour
     [SerializeField] int StatusCheck;
     [SerializeField] AudioSource JumpScareMusic;
     [SerializeField] GameObject ZombieChild;
-   
-   void DamageZombie(int DamageAmount)
+    [SerializeField] AudioSource bgMusic;
+
+    void DamageZombie(int DamageAmount)
     {
         EnemyHealth -= DamageAmount;
     }
@@ -26,8 +28,10 @@ public class ZombieDeath : MonoBehaviour
             Enemy.GetComponent<Animator>().SetTrigger("death");
             Enemy.GetComponent<BoxCollider>().enabled = false;
             ZombieChild.GetComponent<BoxCollider>().enabled = false;
-            JumpScareMusic.Stop();
             this.GetComponent<ZombieAI>().enabled = false;
+            JumpScareMusic.Stop();
+            bgMusic.Play();
+            
         }
     }
 }

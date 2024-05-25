@@ -9,7 +9,8 @@ public class BFirstTrigger : MonoBehaviour
     [SerializeField] FirstPersonController Player;
     [SerializeField] TextMeshProUGUI TextBox;
     [SerializeField] GameObject TheMarker;
-    bool PistoNotPick = true; 
+    bool PistoNotPick = true;
+    [SerializeField] AudioSource line03;
     private void Update()
     {
         if(PickUpPistol.isPistolPicked == true && PistoNotPick)
@@ -30,6 +31,7 @@ public class BFirstTrigger : MonoBehaviour
     IEnumerator ScenePlayer()
     {
         TextBox.text = "Look like a weapon on that table!";
+        line03.Play();
         yield return new WaitForSeconds(2.5f);
         Player.GetComponent<FirstPersonController>().enabled = true;
         TextBox.text = " ";
