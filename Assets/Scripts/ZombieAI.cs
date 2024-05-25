@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ZombieAI : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] AudioSource hurtSound2;
     [SerializeField] AudioSource hurtSound3;
     [SerializeField] int hurtGen;
+    [SerializeField] GameObject TheFlash;
     private void Start()
     {
         animator = Enemy.GetComponent<Animator>();
@@ -40,23 +42,39 @@ public class ZombieAI : MonoBehaviour
     {
         Debug.Log("Taking Damage");
         isAtacking = true;
-        yield return new WaitForSeconds(1.1f);
-        GlobalHealth.currentHealth -= 5;
-        Debug.Log("Current Health :" + GlobalHealth.currentHealth);
         hurtGen = Random.Range(1, 4);
-        if(hurtGen == 1)
+        if (hurtGen == 1)
         {
             hurtSound.Play();
         }
-        else if(hurtGen ==2)
+        else if (hurtGen == 2)
         {
             hurtSound2.Play();
         }
-        else if(hurtGen == 3)
+        else if (hurtGen == 3)
         {
             hurtSound3.Play();
         }
+        hurtGen = Random.Range(1, 4);
+        if (hurtGen == 1)
+        {
+            hurtSound.Play();
+        }
+        else if (hurtGen == 2)
+        {
+            hurtSound2.Play();
+        }
+        else if (hurtGen == 3)
+        {
+            hurtSound3.Play();
+        }
+        yield return new WaitForSeconds(1.1f);
+        GlobalHealth.currentHealth -= 5;
+        TheFlash.SetActive(true);
         yield return new WaitForSeconds(0.2f);
+        TheFlash.SetActive(false);
+        Debug.Log("Current Health :" + GlobalHealth.currentHealth);
+        yield return new WaitForSeconds(0.9f);
         isAtacking = false;
     }
 }
