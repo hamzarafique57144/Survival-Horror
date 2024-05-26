@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: b12fc713be51b874d9da97fddc9b8c5d
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 623f8ca7dac9bfb4098ba408eb41fbf6
+  - enabled: 1
     path: Assets/Scenes/HerrorSurvivalBkp.unity
     guid: da2dd0eb36b1c794189b84fcb91b2fc3
   - enabled: 1
