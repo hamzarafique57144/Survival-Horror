@@ -9,6 +9,7 @@ public class ZombeiTrigger : MonoBehaviour
     [SerializeField] GameObject Zombie;
     [SerializeField] GameObject Door;
     [SerializeField] AudioSource bgMusic;
+    [SerializeField] GameObject KeyCollider;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,11 +23,22 @@ public class ZombeiTrigger : MonoBehaviour
             Zombie.GetComponent<Animator>().SetBool("Walk", true);
 
             StartCoroutine(DoorJumpSound());
+            StartCoroutine(CloseTheDoor());
         }
     }
     IEnumerator DoorJumpSound()
     {
         yield return new WaitForSeconds(0.4f);
         DoorjumpMusic.Play();
+
+    }
+    IEnumerator CloseTheDoor()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Door.GetComponent<Animation>().Play("DoorClose");
+        yield return new WaitForSeconds(0.4f);
+        DoorjumpMusic.Play();
+        KeyCollider.SetActive(true);
+
     }
 }
