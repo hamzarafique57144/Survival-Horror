@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class ZombieDeath : MonoBehaviour
 {
@@ -31,7 +31,12 @@ public class ZombieDeath : MonoBehaviour
             this.GetComponent<ZombieAI>().enabled = false;
             JumpScareMusic.Stop();
             bgMusic.Play();
-            
+            StartCoroutine(LoadNextLevel());
         }
+    }
+   IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(2.3f);
+        SceneManager.LoadScene(5);
     }
 }
