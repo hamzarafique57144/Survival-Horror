@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class FirePistol : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class FirePistol : MonoBehaviour
     [SerializeField] GameObject Muzzle;
     [SerializeField] bool isFiring;
     [SerializeField] AudioSource GunFire;
+    [SerializeField] PlayableDirector shootTimeLine;
     public float TargetDistance=25f;
     public int DamageAmount=5;
 
@@ -35,10 +37,11 @@ public class FirePistol : MonoBehaviour
             TargetDistance = Shot.distance;
 
             Shot.transform.SendMessage("DamageZombie",DamageAmount,SendMessageOptions.DontRequireReceiver);
-            Debug.Log("Fired");
+            
         }
         isFiring = true;
-        Gun.GetComponent<Animation>().Play("PistolShotAnimation");
+        //  Gun.GetComponent<Animation>().Play("PistolShotAnimation");
+        shootTimeLine.Play();
         Muzzle.SetActive(true);
         GunFire.Play();
         yield return new WaitForSeconds(0.2f);
