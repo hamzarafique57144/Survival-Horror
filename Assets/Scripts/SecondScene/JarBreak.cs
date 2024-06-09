@@ -9,8 +9,9 @@ public class JarBreak : MonoBehaviour
     public GameObject sphereObject;
     [SerializeField] AudioSource JarBreakAudio;
     [SerializeField] GameObject KeyTrigger;
+    [SerializeField] GameObject TheKey;
 
-   public  void DamageZombie(int DamageAmount)
+     void DamageZombie(int DamageAmount)
     {
          
         StartCoroutine(BreakVase());
@@ -22,12 +23,14 @@ public class JarBreak : MonoBehaviour
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         fakeVase.SetActive(false);
         brokenVase.SetActive(true);
-        KeyTrigger.SetActive(true);
         JarBreakAudio.Play();
         yield return new WaitForSeconds(0.05f);
         sphereObject.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         sphereObject.SetActive(false);
+        TheKey.SetActive(true);
+        yield return new WaitForSeconds(3);
+        KeyTrigger.SetActive(true);
     }
 
 
