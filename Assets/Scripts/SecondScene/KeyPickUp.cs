@@ -41,6 +41,7 @@ public class KeyPickUp : MonoBehaviour
             
                 KeyTrigger.SetActive(false);
                 TheKey.SetActive(false);
+                GlobalInventory.firstDoorKey = true;
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 // ActionDisplay.SetActive(false);
                 DisplayText.enabled = false;

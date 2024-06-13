@@ -10,6 +10,8 @@ public class LockedDoor : MonoBehaviour
     [SerializeField] float TheDistance;
     [SerializeField] GameObject ExtraCross;
     [SerializeField] AudioSource doorSound;
+    [SerializeField] GameObject TheDoor;
+    [SerializeField] AudioSource CreakSound;
     void Update()
     {
         TheDistance = PlayerCasting.DistanceFromTarget;
@@ -49,9 +51,20 @@ public class LockedDoor : MonoBehaviour
     }
     IEnumerator ResetDoor()
     {
-        doorSound.Play();
-        yield return new WaitForSeconds(1);
-        this.GetComponent<BoxCollider>().enabled = true;
+        if(GlobalInventory.firstDoorKey==false)
+        {
+            doorSound.Play();
+            yield return new WaitForSeconds(1);
+            this.GetComponent<BoxCollider>().enabled = true;
+        }
+        else if(GlobalInventory.firstDoorKey == true)
+        {
+            TheDoor.GetComponent<Animation>().Play("Door2Anim");
+            CreakSound.Play();
+            yield return new WaitForSeconds(1);
+            this.GetComponent<BoxCollider>().enabled = false;
+        }
+       
 
     }
 }
